@@ -1,0 +1,87 @@
+<! DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+        <title>HW74_2</title>
+
+        <style type="text/css">
+            body {
+                background-color: rgb(150, 150, 202);
+            }
+
+            .exsample {
+                top: 5%;
+            }
+
+            .exsample1 {
+                top: 28%;
+            }
+
+            .exsample2 {
+                top: 16%;
+            }
+
+
+            .exsample1 {
+                position: relative;
+                left: 20%;
+                top: 50px;
+                width: 50%;
+                padding-top: 5px;
+                padding-left: 10px;
+                padding-bottom: 10px;
+                font-size: x-large;
+                margin-top: 5px;
+                text-align: justify;
+                background: lightgray;
+                border: 1px solid greenyellow;
+                border-radius: 3%;
+
+            }
+
+            .s1 {
+color: rgb(235, 10, 10);            
+            }
+
+        </style>
+
+        <script type="text/javascript">
+
+            async function onClicBtn1() {
+
+                let url = 'https://www.boredapi.com/api/activity';
+                let response = await fetch(url); 
+                let commits = await response.json(); 
+                outtext = commits.fact;
+                document.getElementById("activity").innerHTML =  "&nbsp;" + commits.activity;
+                document.getElementById("key").innerHTML =  "&nbsp;" + commits.key;
+                document.getElementById("link").innerHTML =  commits.link;
+                document.getElementById("link").href =  commits.link;
+                document.getElementById("participants").innerHTML =  "&nbsp;" + commits.participants;
+                document.getElementById("price").innerHTML =  "&nbsp;" + commits.price;
+                document.getElementById("type").innerHTML =  "&nbsp;" + commits.type;
+
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <span style="font-size: x-large;">To receive a server response, click on the "Send request" button</span>
+        <br>
+        <button id="btn1" onclick="onClicBtn1()">Send request</button>
+
+        <div class="exsample1" id="formForOutPut" )>
+            <span> Activity :  </span>  <span id="activity" class="s1"> </span><br>
+            <span> Key :  </span>  <span id="key" class="s1"> </span><br>
+            <span> Link :  </span>  <a href="" target="_blank" id="link" class="s1"> </a><br>
+            <span> Participants :  </span> <span id="participants" class="s1"> </span><br>
+            <span> Price :  </span>  <span id="price" class="s1"> </span><br>
+            <span> Type :  </span>  <span id="type" class="s1"> </span>
+        </div>
+
+    </body>
+
+    </html>
